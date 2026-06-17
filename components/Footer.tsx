@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Phone, MessageCircle, Mail, MapPin, Facebook, Star } from "lucide-react";
+import { Phone, MessageCircle, Mail, MapPin, Facebook, Instagram, Star } from "lucide-react";
 import { Logo } from "@/components/ui/Logo";
 import {
   navLinks,
@@ -35,9 +35,18 @@ export function Footer() {
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Dreamfares on Facebook"
-              className="grid h-10 w-10 place-items-center rounded-full border border-white/15 text-white/80 transition-colors hover:border-brand-400 hover:text-brand-300"
+              className="grid h-10 w-10 place-items-center rounded-full border border-white/15 text-white/80 transition-colors hover:border-brand-400 hover:bg-brand-500/15 hover:text-brand-300"
             >
               <Facebook className="h-[18px] w-[18px]" />
+            </a>
+            <a
+              href={social.instagram}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Dreamfares on Instagram"
+              className="grid h-10 w-10 place-items-center rounded-full border border-white/15 text-white/80 transition-colors hover:border-pink-400 hover:bg-pink-500/15 hover:text-pink-300"
+            >
+              <Instagram className="h-[18px] w-[18px]" />
             </a>
             <a
               href={social.trustpilot}

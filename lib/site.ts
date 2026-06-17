@@ -24,7 +24,10 @@ export const contact = {
 };
 
 export const social = {
-  facebook: process.env.NEXT_PUBLIC_FACEBOOK_URL ?? "https://www.facebook.com/",
+  facebook:
+    process.env.NEXT_PUBLIC_FACEBOOK_URL ??
+    "https://www.facebook.com/share/18pNySu4Ci/?mibextid=wwXIfr",
+  instagram: process.env.NEXT_PUBLIC_INSTAGRAM_URL ?? "https://www.instagram.com/dreamfares_au",
   trustpilot: process.env.NEXT_PUBLIC_TRUSTPILOT_URL ?? "https://www.trustpilot.com/",
 };
 
