@@ -31,7 +31,7 @@ export function Navbar() {
           : "bg-transparent"
       }`}
     >
-      <nav className="container-px flex h-16 items-center justify-between lg:h-20">
+      <nav className="container-px flex h-20 items-center justify-between lg:h-24">
         <Logo />
 
         <ul className="hidden items-center gap-1 lg:flex">
