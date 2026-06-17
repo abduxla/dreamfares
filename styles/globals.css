@@ -1,0 +1,101 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --font-jakarta: "Plus Jakarta Sans", system-ui, sans-serif;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    @apply bg-white text-ink antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  ::selection {
+    @apply bg-brand-500/20 text-brand-900;
+  }
+
+  /* Respect users who prefer reduced motion */
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.001ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.001ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
+
+@layer components {
+  .container-px {
+    @apply mx-auto w-full max-w-content px-5 sm:px-6 lg:px-8;
+  }
+
+  .section {
+    @apply py-20 sm:py-24 lg:py-28;
+  }
+
+  .eyebrow {
+    @apply inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.18em] text-brand-600;
+  }
+
+  .heading-display {
+    @apply font-bold tracking-tight text-ink;
+    letter-spacing: -0.02em;
+  }
+
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 text-sm font-semibold
+      transition-all duration-300 ease-premium focus-visible:outline-none focus-visible:ring-2
+      focus-visible:ring-brand-500/50 focus-visible:ring-offset-2;
+  }
+
+  .btn-primary {
+    @apply btn bg-brand-600 text-white shadow-glow hover:-translate-y-0.5 hover:bg-brand-700;
+  }
+
+  .btn-gold {
+    @apply btn bg-gold-500 text-ink shadow-soft hover:-translate-y-0.5 hover:bg-gold-400;
+  }
+
+  .btn-ghost {
+    @apply btn border border-ink/10 bg-white/80 text-ink backdrop-blur hover:-translate-y-0.5 hover:border-brand-500/40 hover:text-brand-700;
+  }
+
+  .btn-whatsapp {
+    @apply btn bg-[#25D366] text-white shadow-soft hover:-translate-y-0.5 hover:bg-[#1ebe5b];
+  }
+
+  .card {
+    @apply rounded-3xl border border-ink/[0.06] bg-white shadow-soft transition-all duration-500 ease-premium;
+  }
+
+  .field-label {
+    @apply mb-1.5 block text-sm font-semibold text-ink;
+  }
+
+  .field-input {
+    @apply w-full rounded-xl border border-ink/10 bg-white px-4 py-3 text-sm text-ink shadow-sm
+      outline-none transition-all duration-200 placeholder:text-ink-muted/70
+      focus:border-brand-500 focus:ring-2 focus:ring-brand-500/20;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .bg-grid {
+    background-image: radial-gradient(rgba(10, 37, 64, 0.06) 1px, transparent 1px);
+    background-size: 22px 22px;
+  }
+}
