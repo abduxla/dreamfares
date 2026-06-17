@@ -79,7 +79,7 @@ export default function ContactPage() {
                   rel={m.external ? "noopener noreferrer" : undefined}
                   className="card group flex items-start gap-4 p-5 hover:-translate-y-1 hover:shadow-card"
                 >
-                  <span className="grid h-12 w-12 shrink-0 place-items-center rounded-2xl bg-brand-50 text-brand-600 transition-colors duration-300 group-hover:bg-brand-600 group-hover:text-white">
+                  <span className="grid h-12 w-12 shrink-0 place-items-center rounded-2xl bg-brand-500/15 text-brand-300 ring-1 ring-inset ring-brand-400/20 transition-colors duration-300 group-hover:bg-brand-500 group-hover:text-white">
                     <m.icon className="h-5 w-5" />
                   </span>
                   <span className="min-w-0">
@@ -95,7 +95,7 @@ export default function ContactPage() {
             </div>
 
             <div className="mt-6 flex items-start gap-4 rounded-2xl border border-ink/5 bg-sand p-5">
-              <span className="grid h-12 w-12 shrink-0 place-items-center rounded-2xl bg-white text-brand-600 shadow-soft">
+              <span className="grid h-12 w-12 shrink-0 place-items-center rounded-2xl bg-brand-500/15 text-brand-300 ring-1 ring-inset ring-brand-400/20">
                 <Clock className="h-5 w-5" />
               </span>
               <div>

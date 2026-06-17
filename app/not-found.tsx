@@ -3,8 +3,8 @@ import { Home, Compass } from "lucide-react";
 
 export default function NotFound() {
   return (
-    <section className="relative flex min-h-[80svh] items-center justify-center overflow-hidden bg-ink px-6 text-center text-white">
-      <div className="absolute inset-0 bg-grid opacity-[0.05]" aria-hidden />
+    <section className="relative flex min-h-[80svh] items-center justify-center overflow-hidden bg-navy-950 px-6 text-center text-white">
+      <div className="absolute inset-0 bg-grid opacity-40" aria-hidden />
       <div
         className="absolute -top-24 left-1/2 h-72 w-72 -translate-x-1/2 rounded-full bg-brand-500/25 blur-3xl"
         aria-hidden

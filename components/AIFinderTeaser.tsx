@@ -12,8 +12,8 @@ export function AIFinderTeaser() {
   return (
     <section className="section">
       <div className="container-px">
-        <div className="relative overflow-hidden rounded-4xl bg-ink px-6 py-14 text-white sm:px-12 lg:px-16 lg:py-20">
-          <div className="absolute inset-0 bg-grid opacity-[0.05]" aria-hidden />
+        <div className="relative overflow-hidden rounded-4xl border border-white/10 bg-gradient-to-br from-navy-850 to-navy-950 px-6 py-14 text-white shadow-card sm:px-12 lg:px-16 lg:py-20">
+          <div className="absolute inset-0 bg-grid opacity-40" aria-hidden />
           <div
             className="absolute -right-20 -top-24 h-80 w-80 rounded-full bg-brand-500/30 blur-3xl"
             aria-hidden

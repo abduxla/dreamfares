@@ -1,0 +1,26 @@
+<svg width="268" height="64" viewBox="0 0 268 64" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Dream Fares">
+  <defs>
+    <linearGradient id="gold" x1="0" y1="0" x2="56" y2="56" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#f3dca6"/>
+      <stop offset="1" stop-color="#dcae53"/>
+    </linearGradient>
+    <linearGradient id="word" x1="64" y1="0" x2="250" y2="0" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#3ddc84"/>
+      <stop offset="0.6" stop-color="#22c55e"/>
+      <stop offset="1" stop-color="#ecd384"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Emblem: gold globe with green orbit + plane -->
+  <circle cx="30" cy="30" r="20" fill="url(#gold)"/>
+  <g stroke="#0a1126" strokeWidth="1.4" opacity="0.55" fill="none">
+    <ellipse cx="30" cy="30" rx="20" ry="8"/>
+    <path d="M30 10 C20 18 20 42 30 50 C40 42 40 18 30 10"/>
+  </g>
+  <ellipse cx="30" cy="30" rx="27" ry="11" transform="rotate(-24 30 30)" stroke="#22c55e" strokeWidth="2.4" fill="none"/>
+  <path d="M44 18 l-12 7 4 1 1.5 4 2.6-3.4 4.4 2.4 c1.2.6 2.4-.6 1.6-1.8 z" fill="#22c55e"/>
+
+  <!-- Wordmark -->
+  <text x="62" y="34" font-family="'Plus Jakarta Sans', Arial, sans-serif" font-size="25" font-weight="800" letter-spacing="0.5" fill="url(#word)">DREAM FARES</text>
+  <text x="63" y="51" font-family="'Plus Jakarta Sans', Arial, sans-serif" font-size="10.5" font-weight="600" letter-spacing="0.4" fill="#dcae53">Your Dreams, Our Fares!</text>
+</svg>

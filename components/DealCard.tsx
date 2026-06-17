@@ -1,70 +1,103 @@
 import Image from "next/image";
-import { MessageCircle, MapPin, Moon, Check } from "lucide-react";
+import { MessageCircle, Plane, Clock, Star } from "lucide-react";
 import type { Deal } from "@/lib/data";
 import { whatsappHref } from "@/lib/site";
 
 export function DealCard({ deal }: { deal: Deal }) {
   const message = `Hi Dreamfares! I'm interested in the "${deal.title}" (${deal.nights} nights) package from AUD $${deal.price.toLocaleString()}. Could you share availability?`;
+  const href = whatsappHref(message);
 
   return (
-    <article className="card group flex h-full flex-col overflow-hidden hover:-translate-y-1.5 hover:shadow-card">
-      <div className="relative aspect-[16/11] overflow-hidden">
+    <article className="card group flex h-full flex-col overflow-hidden hover:-translate-y-2 hover:border-brand-400/40 hover:shadow-glow">
+      <div className="relative aspect-[16/10] overflow-hidden">
         <Image
           src={deal.image}
           alt={deal.title}
           fill
           loading="lazy"
           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-          className="object-cover transition-transform duration-700 ease-premium group-hover:scale-105"
+          className="object-cover transition-transform duration-700 ease-premium group-hover:scale-110"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-ink/40 to-transparent opacity-70" />
-        <span className="absolute left-4 top-4 rounded-full bg-gold-500 px-3 py-1 text-xs font-bold text-ink shadow-soft">
-          Save {deal.save}%
-        </span>
-        <span className="absolute right-4 top-4 inline-flex items-center gap-1 rounded-full bg-ink/70 px-3 py-1 text-xs font-semibold text-white backdrop-blur">
-          <Moon className="h-3 w-3" />
-          {deal.nights} nights
-        </span>
+        <div className="absolute inset-0 bg-gradient-to-t from-navy-950/80 via-navy-950/10 to-transparent" />
+
+        {/* Badges */}
+        <div className="absolute left-3 top-3 flex flex-wrap gap-2">
+          {deal.limited && (
+            <span className="inline-flex items-center gap-1 rounded-full bg-rose-500 px-2.5 py-1 text-[11px] font-bold text-white shadow-soft">
+              <Clock className="h-3 w-3" />
+              Limited Time
+            </span>
+          )}
+          <span className="rounded-full bg-gradient-to-r from-gold-400 to-gold-500 px-2.5 py-1 text-[11px] font-bold text-navy-950 shadow-soft">
+            Save {deal.save}%
+          </span>
+        </div>
+        {deal.featured && (
+          <span className="absolute right-3 top-3 inline-flex items-center gap-1 rounded-full bg-brand-500/90 px-2.5 py-1 text-[11px] font-bold text-white backdrop-blur">
+            <Star className="h-3 w-3 fill-current" />
+            Featured
+          </span>
+        )}
       </div>
 
       <div className="flex flex-1 flex-col p-6">
-        <p className="inline-flex items-center gap-1.5 text-xs font-semibold uppercase tracking-wide text-brand-600">
-          <MapPin className="h-3.5 w-3.5" />
-          {deal.location}
+        <div className="flex items-start justify-between gap-3">
+          <h3 className="text-2xl font-extrabold text-white">{deal.short}</h3>
+          <span className="inline-flex shrink-0 items-center gap-1 rounded-full border border-white/10 bg-white/5 px-2.5 py-1 text-xs font-semibold text-azure-300">
+            <Plane className="h-3.5 w-3.5 -rotate-45" />
+            {deal.nights}N
+          </span>
+        </div>
+        <p className="mt-1 text-sm font-medium text-ink-soft">
+          {deal.nights} Nights {deal.title}
         </p>
-        <h3 className="mt-2 text-xl font-bold text-ink">{deal.title}</h3>
-        <p className="mt-1.5 text-sm text-ink-muted">{deal.summary}</p>
+        <p className="mt-3 line-clamp-2 text-sm leading-relaxed text-ink-muted">{deal.summary}</p>
 
-        <ul className="mt-4 grid grid-cols-1 gap-1.5">
+        <div className="mt-4 flex flex-wrap gap-2">
           {deal.inclusions.map((inc) => (
-            <li key={inc} className="flex items-center gap-2 text-sm text-ink-soft">
-              <Check className="h-4 w-4 shrink-0 text-brand-500" />
+            <span
+              key={inc}
+              className="rounded-full border border-white/10 bg-white/5 px-2.5 py-1 text-[11px] font-medium text-ink-soft"
+            >
               {inc}
-            </li>
+            </span>
           ))}
-        </ul>
+        </div>
 
         <div className="mt-auto flex items-end justify-between pt-6">
           <div>
-            <span className="block text-xs text-ink-muted line-through">
-              ${deal.originalPrice.toLocaleString()}
-            </span>
-            <span className="text-2xl font-extrabold text-ink">
-              ${deal.price.toLocaleString()}
-            </span>
-            <span className="ml-1 text-xs font-medium text-ink-muted">AUD pp</span>
+            <span className="text-xs text-ink-muted">From</span>
+            <p className="flex items-baseline gap-2">
+              <span className="text-2xl font-extrabold text-white">
+                AUD ${deal.price.toLocaleString()}
+              </span>
+              <span className="text-sm text-ink-muted line-through">
+                ${deal.originalPrice.toLocaleString()}
+              </span>
+            </p>
+            <span className="text-xs text-ink-muted">per person</span>
           </div>
         </div>
 
-        <a
-          href={whatsappHref(message)}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="btn-primary mt-4 w-full"
-        >
-          <MessageCircle className="h-4 w-4" />
-          Enquire Now
-        </a>
+        <div className="mt-4 flex gap-2">
+          <a
+            href={href}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="btn-gold flex-1"
+          >
+            View Details
+          </a>
+          <a
+            href={href}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label={`Enquire about ${deal.title} on WhatsApp`}
+            className="grid h-11 w-12 shrink-0 place-items-center rounded-full bg-grass-500 text-white shadow-glow-green transition-transform duration-300 hover:-translate-y-0.5"
+          >
+            <MessageCircle className="h-5 w-5" />
+          </a>
+        </div>
       </div>
     </article>
   );

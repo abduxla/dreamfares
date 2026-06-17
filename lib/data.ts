@@ -1,7 +1,7 @@
 /**
- * Content data for Dreamfares: featured destinations, deals, destinations,
- * reviews, stats and brand values. Imagery is served from Unsplash and
- * optimized at request time by next/image.
+ * Content data for Dreamfares: hero slides, featured destinations, deals,
+ * destinations, reviews, stats and brand values. Imagery is served from
+ * Unsplash and optimized at request time by next/image.
  */
 
 const img = (id: string, w = 1600) =>
@@ -13,13 +13,29 @@ export const stats = [
   { value: "4.9★", label: "Average Rating" },
 ];
 
+export interface HeroSlide {
+  place: string;
+  tagline: string;
+  from: number;
+  image: string;
+}
+
+/** Rotating hero slides — background, eyebrow tagline and lead-in price. */
+export const heroSlides: HeroSlide[] = [
+  { place: "Phuket, Thailand", tagline: "Sun, Sea & Adventure", from: 899, image: img("1528181304800-259b08848526", 2000) },
+  { place: "Bali, Indonesia", tagline: "Island Bliss Awaits", from: 1199, image: img("1537996194471-e657df975ab4", 2000) },
+  { place: "Maldives", tagline: "Overwater Luxury", from: 3999, image: img("1514282401047-d79a71a590e8", 2000) },
+  { place: "Tokyo, Japan", tagline: "Where Tradition Meets Future", from: 2999, image: img("1540959733332-eab4deabeeaf", 2000) },
+  { place: "Dubai, UAE", tagline: "Desert Glamour", from: 1899, image: img("1512453979798-5ea266f8880c", 2000) },
+];
+
 export interface FeaturedDestination {
   name: string;
   country: string;
   image: string;
 }
 
-/** Six showcase tiles on the home page (matches the source ordering). */
+/** Six showcase tiles + hero filmstrip (matches the source ordering). */
 export const featuredDestinations: FeaturedDestination[] = [
   { name: "Bali", country: "Indonesia", image: img("1573790387438-4da905039392") },
   { name: "Swiss Alps", country: "Switzerland", image: img("1531366936337-7c912a4589a7") },
@@ -31,6 +47,7 @@ export const featuredDestinations: FeaturedDestination[] = [
 
 export interface Deal {
   slug: string;
+  short: string;
   title: string;
   location: string;
   nights: number;
@@ -41,30 +58,34 @@ export interface Deal {
   save: number;
   image: string;
   featured?: boolean;
+  limited?: boolean;
 }
 
 /** Featured holiday packages (home + Travel Deals page). */
 export const deals: Deal[] = [
   {
     slug: "bali-paradise-package",
+    short: "Bali",
     title: "Bali Paradise Package",
     location: "Bali, Indonesia",
     nights: 7,
-    summary: "Return flights, a 4-star hotel and daily breakfast.",
-    inclusions: ["Return international flights", "4-star hotel — 7 nights", "Daily breakfast", "Airport transfers"],
+    summary: "Flights + 4-star hotel in Seminyak with daily breakfast, airport transfers and a complimentary spa session. Perfect for couples.",
+    inclusions: ["Return Flights", "4-Star Hotel", "Daily Breakfast"],
     price: 1199,
     originalPrice: 1599,
     save: 25,
     image: img("1537953773345-d172ccf13cf1"),
     featured: true,
+    limited: true,
   },
   {
     slug: "maldives-luxury-water-villa",
+    short: "Maldives",
     title: "Maldives Luxury Water Villa",
     location: "Maldives",
     nights: 6,
-    summary: "Overwater villa with all-inclusive meals.",
-    inclusions: ["Overwater villa stay", "All-inclusive meals & drinks", "Return flights & seaplane", "Sunset cruise"],
+    summary: "The ultimate luxury escape — overwater villa with direct ocean access, all-inclusive meals, sunset cruise and snorkelling excursions.",
+    inclusions: ["Return Flights", "Overwater Villa", "All-Inclusive Meals"],
     price: 3999,
     originalPrice: 5499,
     save: 27,
@@ -73,11 +94,12 @@ export const deals: Deal[] = [
   },
   {
     slug: "japan-triple-city-explorer",
+    short: "Japan",
     title: "Japan Triple City Explorer",
     location: "Tokyo · Kyoto · Osaka",
     nights: 10,
-    summary: "Tokyo, Kyoto and Osaka with a 7-day rail pass.",
-    inclusions: ["Tokyo, Kyoto & Osaka", "7-day Japan Rail Pass", "Central 4-star hotels", "Return flights"],
+    summary: "Tokyo, Kyoto & Osaka — flights + hotels + 7-day Japan Rail Pass. Explore ancient temples, neon cityscapes and world-class cuisine.",
+    inclusions: ["Return Flights", "3 City Hotels", "7-Day Rail Pass"],
     price: 2999,
     originalPrice: 3799,
     save: 21,
@@ -86,38 +108,46 @@ export const deals: Deal[] = [
   },
   {
     slug: "europe-multi-city-grand-tour",
+    short: "Europe",
     title: "Europe Multi-City Grand Tour",
     location: "Paris · Rome · Barcelona",
     nights: 12,
-    summary: "Paris, Rome and Barcelona with inter-city trains.",
-    inclusions: ["Paris, Rome & Barcelona", "Inter-city train travel", "4-star city hotels", "Return flights"],
+    summary: "Paris, Rome & Barcelona with inter-city train travel, 4-star city hotels and return flights. The classic European adventure.",
+    inclusions: ["Return Flights", "Inter-City Trains", "4-Star Hotels"],
     price: 3799,
     originalPrice: 4599,
     save: 17,
     image: img("1502602898657-3e91760cbb34"),
+    featured: true,
+    limited: true,
   },
   {
     slug: "phuket-bangkok-adventure",
+    short: "Thailand",
     title: "Phuket & Bangkok Adventure",
     location: "Phuket · Bangkok",
     nights: 8,
-    summary: "A beach and city combination across Thailand.",
-    inclusions: ["Phuket beaches & Bangkok", "Return flights & transfers", "Daily breakfast", "Island day tour"],
+    summary: "A beach and city combination — Phuket's islands and Bangkok's buzz, with return flights, transfers, daily breakfast and an island day tour.",
+    inclusions: ["Return Flights", "Daily Breakfast", "Island Tour"],
     price: 1699,
     originalPrice: 2199,
     save: 23,
     image: img("1528181304800-259b08848526"),
+    featured: true,
+    limited: true,
   },
   {
     slug: "dubai-luxury-escape",
+    short: "Dubai",
     title: "Dubai Luxury Escape",
     location: "Dubai, UAE",
     nights: 5,
-    summary: "5-star beach hotel with a desert safari.",
-    inclusions: ["5-star beachfront hotel", "Desert safari with dinner", "Return flights & transfers", "Daily breakfast"],
+    summary: "5-star beachfront hotel with a desert safari, return flights, transfers and daily breakfast. Glamour, gold and golden dunes.",
+    inclusions: ["5-Star Hotel", "Desert Safari", "Return Flights"],
     price: 1899,
     originalPrice: 2499,
     save: 24,
+    featured: true,
     image: img("1512453979798-5ea266f8880c"),
   },
 ];
@@ -171,42 +201,12 @@ export interface Review {
 
 /** Traveller testimonials (Reviews page + home carousel). */
 export const reviews: Review[] = [
-  {
-    name: "Sarah Lawson",
-    trip: "Bali",
-    rating: 5,
-    quote: "Fantastic service and unbeatable Bali deal. Everything was smooth.",
-  },
-  {
-    name: "Michael Reynolds",
-    trip: "Japan",
-    rating: 5,
-    quote: "Very professional and responsive. Found us a great Japan package.",
-  },
-  {
-    name: "Amanda Turner",
-    trip: "Thailand",
-    rating: 5,
-    quote: "Amazing deals and great communication. Highly recommend Dreamfares.",
-  },
-  {
-    name: "James Kowalski",
-    trip: "Maldives",
-    rating: 5,
-    quote: "Our Maldives honeymoon was perfectly arranged. The water villa was incredible!",
-  },
-  {
-    name: "Priya Sharma",
-    trip: "Dubai",
-    rating: 5,
-    quote: "Best price we found for a Dubai family trip. Will definitely book again.",
-  },
-  {
-    name: "Tom & Lisa Bennett",
-    trip: "Europe",
-    rating: 5,
-    quote: "Europe multi-city trip was seamless. Hotels were lovely and flights well-timed.",
-  },
+  { name: "Sarah Lawson", trip: "Bali", rating: 5, quote: "Fantastic service and unbeatable Bali deal. Everything was smooth." },
+  { name: "Michael Reynolds", trip: "Japan", rating: 5, quote: "Very professional and responsive. Found us a great Japan package." },
+  { name: "Amanda Turner", trip: "Thailand", rating: 5, quote: "Amazing deals and great communication. Highly recommend Dreamfares." },
+  { name: "James Kowalski", trip: "Maldives", rating: 5, quote: "Our Maldives honeymoon was perfectly arranged. The water villa was incredible!" },
+  { name: "Priya Sharma", trip: "Dubai", rating: 5, quote: "Best price we found for a Dubai family trip. Will definitely book again." },
+  { name: "Tom & Lisa Bennett", trip: "Europe", rating: 5, quote: "Europe multi-city trip was seamless. Hotels were lovely and flights well-timed." },
 ];
 
 export interface Value {

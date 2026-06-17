@@ -20,7 +20,7 @@ export function FeaturedDestinations() {
         <motion.div
           key={dest.name}
           variants={cardIn}
-          className={`group relative overflow-hidden rounded-3xl shadow-soft ${
+          className={`group relative overflow-hidden rounded-3xl border border-white/10 shadow-soft transition-all duration-500 hover:border-brand-400/40 ${
             i === 0 ? "col-span-2 aspect-[16/10] lg:col-span-1 lg:aspect-[4/5]" : "aspect-[4/5]"
           }`}
         >
@@ -33,7 +33,7 @@ export function FeaturedDestinations() {
               sizes="(max-width: 1024px) 50vw, 33vw"
               className="object-cover transition-transform duration-700 ease-premium group-hover:scale-110"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-ink/85 via-ink/20 to-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-t from-navy-950 via-navy-950/25 to-transparent" />
             <div className="absolute inset-x-0 bottom-0 flex items-end justify-between p-5">
               <div>
                 <h3 className="text-lg font-bold text-white sm:text-xl">{dest.name}</h3>

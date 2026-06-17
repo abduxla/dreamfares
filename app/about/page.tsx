@@ -59,7 +59,7 @@ export default function AboutPage() {
             <div className="mt-8 grid grid-cols-3 gap-4">
               {stats.map((stat) => (
                 <div key={stat.label} className="rounded-2xl border border-ink/5 bg-sand p-4 text-center">
-                  <p className="text-2xl font-extrabold text-brand-700">{stat.value}</p>
+                  <p className="text-2xl font-extrabold text-brand-300">{stat.value}</p>
                   <p className="mt-1 text-xs text-ink-muted">{stat.label}</p>
                 </div>
               ))}

@@ -45,7 +45,7 @@ export default function ReviewsPage() {
                 href={social.trustpilot}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="font-semibold text-brand-700 underline-offset-2 hover:underline"
+                className="font-semibold text-brand-300 underline-offset-2 hover:underline"
               >
                 Trustpilot
               </a>{" "}
@@ -54,7 +54,7 @@ export default function ReviewsPage() {
                 href={social.facebook}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="font-semibold text-brand-700 underline-offset-2 hover:underline"
+                className="font-semibold text-brand-300 underline-offset-2 hover:underline"
               >
                 Facebook
               </a>

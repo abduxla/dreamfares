@@ -30,8 +30,8 @@ export function DestinationsGrid() {
               onClick={() => setRegion(r)}
               className={`rounded-full px-4 py-2 text-sm font-medium transition-all duration-300 ${
                 active
-                  ? "bg-brand-600 text-white shadow-glow"
-                  : "border border-ink/10 bg-white text-ink-soft hover:border-brand-500/40 hover:text-brand-700"
+                  ? "bg-gradient-to-r from-brand-500 to-brand-600 text-white shadow-glow"
+                  : "border border-white/10 bg-white/5 text-ink-soft hover:border-brand-400/40 hover:text-white"
               }`}
             >
               {r}

@@ -29,9 +29,9 @@ export function ValuesGrid() {
           <motion.div
             key={value.title}
             variants={cardIn}
-            className="card group p-7 hover:-translate-y-1.5 hover:shadow-card"
+            className="card group p-7 hover:-translate-y-1.5 hover:border-brand-400/40 hover:shadow-glow"
           >
-            <span className="grid h-12 w-12 place-items-center rounded-2xl bg-brand-50 text-brand-600 transition-colors duration-300 group-hover:bg-brand-600 group-hover:text-white">
+            <span className="grid h-12 w-12 place-items-center rounded-2xl bg-brand-500/15 text-brand-300 ring-1 ring-inset ring-brand-400/20 transition-colors duration-300 group-hover:bg-brand-500 group-hover:text-white">
               <Icon className="h-6 w-6" />
             </span>
             <h3 className="mt-5 text-lg font-bold text-ink">{value.title}</h3>

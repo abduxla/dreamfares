@@ -46,7 +46,7 @@ export function ContactForm() {
       <div className="mt-6 grid gap-4 sm:grid-cols-2">
         <div className="sm:col-span-2">
           <label htmlFor="name" className="field-label">
-            Full Name <span className="text-brand-600">*</span>
+            Full Name <span className="text-gold-400">*</span>
           </label>
           <input
             id="name"
@@ -60,7 +60,7 @@ export function ContactForm() {
 
         <div>
           <label htmlFor="email" className="field-label">
-            Email <span className="text-brand-600">*</span>
+            Email <span className="text-gold-400">*</span>
           </label>
           <input
             id="email"
@@ -132,7 +132,7 @@ export function ContactForm() {
 
       <p className="mt-4 text-center text-xs text-ink-muted">
         Prefer email?{" "}
-        <a href={mailHref} className="font-semibold text-brand-700 underline-offset-2 hover:underline">
+        <a href={mailHref} className="font-semibold text-brand-300 underline-offset-2 hover:underline">
           Email our team
         </a>
       </p>

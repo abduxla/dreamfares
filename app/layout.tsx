@@ -3,7 +3,9 @@ import { Plus_Jakarta_Sans } from "next/font/google";
 import "@/styles/globals.css";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
+import { Backdrop } from "@/components/Backdrop";
 import { WhatsAppFloat } from "@/components/WhatsAppFloat";
+import { GetQuote } from "@/components/GetQuote";
 import { siteConfig, contact, social } from "@/lib/site";
 
 const jakarta = Plus_Jakarta_Sans({
@@ -76,15 +78,17 @@ const jsonLd = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en-AU" className={jakarta.variable}>
-      <body className="min-h-screen bg-white font-sans">
+      <body className="min-h-screen bg-navy-900 font-sans">
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
+        <Backdrop />
         <Navbar />
         <main>{children}</main>
         <Footer />
         <WhatsAppFloat />
+        <GetQuote />
       </body>
     </html>
   );

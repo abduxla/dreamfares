@@ -15,9 +15,9 @@ export const siteConfig = {
 };
 
 export const contact = {
-  phoneDisplay: process.env.NEXT_PUBLIC_PHONE_DISPLAY ?? "(03) 9003 4888",
-  phoneE164: process.env.NEXT_PUBLIC_PHONE_E164 ?? "+61390034888",
-  whatsappDisplay: process.env.NEXT_PUBLIC_WHATSAPP_DISPLAY ?? "+61 485 864 978",
+  phoneDisplay: process.env.NEXT_PUBLIC_PHONE_DISPLAY ?? "(03) 9003 0609",
+  phoneE164: process.env.NEXT_PUBLIC_PHONE_E164 ?? "+61390030609",
+  whatsappDisplay: process.env.NEXT_PUBLIC_WHATSAPP_DISPLAY ?? "0485 864 978",
   whatsappE164: process.env.NEXT_PUBLIC_WHATSAPP_E164 ?? "61485864978",
   email: process.env.NEXT_PUBLIC_EMAIL ?? "Support@dreamfares.com.au",
   location: "Melbourne, Australia",

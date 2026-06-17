@@ -55,9 +55,9 @@ export default function AIDealFinderPage() {
               {steps.map((step, i) => (
                 <div
                   key={step.title}
-                  className="flex items-start gap-4 rounded-2xl border border-ink/5 bg-white p-5 shadow-soft"
+                  className="flex items-start gap-4 rounded-2xl border border-white/10 bg-white/5 p-5 shadow-soft"
                 >
-                  <span className="grid h-11 w-11 shrink-0 place-items-center rounded-xl bg-brand-50 text-brand-600">
+                  <span className="grid h-11 w-11 shrink-0 place-items-center rounded-xl bg-brand-500/15 text-brand-300 ring-1 ring-inset ring-brand-400/20">
                     <step.icon className="h-5 w-5" />
                   </span>
                   <div>
