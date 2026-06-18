@@ -19,6 +19,14 @@ export const metadata: Metadata = {
     "Get in touch with the Dreamfares travel team. Call, WhatsApp or email us — we're based in Melbourne and ready to plan your next holiday.",
 };
 
+function MessengerIcon({ className }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 24 24" fill="currentColor" className={className} aria-hidden>
+      <path d="M12 2C6.3 2 2 6.2 2 11.7c0 2.9 1.2 5.4 3.1 7.1.2.1.3.4.3.6l.1 1.9c0 .6.6 1 1.2.8l2.1-.9c.2-.1.4-.1.6 0 .9.3 1.9.4 2.5.4 5.7 0 10-4.2 10-9.7C22 6.2 17.7 2 12 2zm6 7.5-2.9 4.6c-.5.7-1.5.9-2.1.4l-2.3-1.7c-.2-.2-.5-.2-.8 0l-3.1 2.4c-.4.3-1-.2-.7-.7l2.9-4.6c.5-.7 1.5-.9 2.1-.4l2.3 1.7c.2.2.5.2.8 0l3.1-2.4c.4-.3 1 .2.7.7z" />
+    </svg>
+  );
+}
+
 const methods = [
   {
     icon: Phone,
@@ -35,6 +43,13 @@ const methods = [
     external: true,
   },
   {
+    icon: MessengerIcon,
+    label: "Messenger",
+    value: "Chat on Facebook",
+    href: contact.messenger,
+    external: true,
+  },
+  {
     icon: Mail,
     label: "Email",
     value: contact.email,
@@ -43,8 +58,8 @@ const methods = [
   },
   {
     icon: MapPin,
-    label: "Location",
-    value: contact.location,
+    label: "Address",
+    value: contact.address,
     href: mapsHref,
     external: true,
   },
@@ -67,7 +82,7 @@ export default function ContactPage() {
               We&apos;d love to help plan your trip
             </h2>
             <p className="mt-3 text-ink-muted">
-              {siteConfig.legalName} · {contact.location}
+              {siteConfig.legalName} · {contact.address}
             </p>
 
             <div className="mt-8 grid gap-4 sm:grid-cols-2">

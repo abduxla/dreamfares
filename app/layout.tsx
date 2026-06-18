@@ -6,6 +6,7 @@ import { Footer } from "@/components/Footer";
 import { Backdrop } from "@/components/Backdrop";
 import { WhatsAppFloat } from "@/components/WhatsAppFloat";
 import { GetQuote } from "@/components/GetQuote";
+import { EnquiryProvider } from "@/components/EnquiryProvider";
 import { siteConfig, contact, social } from "@/lib/site";
 
 const jakarta = Plus_Jakarta_Sans({
@@ -70,8 +71,15 @@ const jsonLd = {
   email: contact.email,
   telephone: contact.phoneE164,
   areaServed: "AU",
-  address: { "@type": "PostalAddress", addressLocality: "Melbourne", addressCountry: "AU" },
-  sameAs: [social.facebook, social.trustpilot],
+  address: {
+    "@type": "PostalAddress",
+    streetAddress: "329/98-100 Elizabeth Street",
+    addressLocality: "Melbourne",
+    addressRegion: "VIC",
+    postalCode: "3000",
+    addressCountry: "AU",
+  },
+  sameAs: [social.facebook, social.instagram, social.trustpilot, contact.messenger],
   aggregateRating: { "@type": "AggregateRating", ratingValue: "4.9", reviewCount: "500" },
 };
 
@@ -84,11 +92,13 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
         <Backdrop />
-        <Navbar />
-        <main>{children}</main>
-        <Footer />
-        <WhatsAppFloat />
-        <GetQuote />
+        <EnquiryProvider>
+          <Navbar />
+          <main>{children}</main>
+          <Footer />
+          <WhatsAppFloat />
+          <GetQuote />
+        </EnquiryProvider>
       </body>
     </html>
   );

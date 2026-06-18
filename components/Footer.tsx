@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { Phone, MessageCircle, Mail, MapPin, Facebook, Instagram, Star } from "lucide-react";
 import { Logo } from "@/components/ui/Logo";
+import { TrustBadges } from "@/components/TrustBadges";
 import {
   navLinks,
   contact,
@@ -21,6 +22,16 @@ export function Footer() {
       <div className="absolute inset-0 bg-grid opacity-40" aria-hidden />
       <div className="orb -left-24 bottom-0 h-72 w-72 bg-brand-600/15" aria-hidden />
       <div className="orb -right-24 top-0 h-72 w-72 bg-violet-500/10" aria-hidden />
+
+      {/* Accreditation band */}
+      <div className="container-px relative border-b border-white/10 py-8">
+        <div className="flex flex-col items-center gap-4 text-center">
+          <p className="text-xs font-semibold uppercase tracking-[0.16em] text-ink-muted">
+            Accredited &amp; trusted
+          </p>
+          <TrustBadges className="justify-center" />
+        </div>
+      </div>
 
       <div className="container-px relative grid gap-12 py-16 lg:grid-cols-[1.4fr_1fr_1.3fr]">
         {/* Brand */}
@@ -47,6 +58,17 @@ export function Footer() {
               className="grid h-10 w-10 place-items-center rounded-full border border-white/15 text-white/80 transition-colors hover:border-pink-400 hover:bg-pink-500/15 hover:text-pink-300"
             >
               <Instagram className="h-[18px] w-[18px]" />
+            </a>
+            <a
+              href={contact.messenger}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Dreamfares on Messenger"
+              className="grid h-10 w-10 place-items-center rounded-full border border-white/15 text-white/80 transition-colors hover:border-brand-400 hover:bg-brand-500/15 hover:text-brand-300"
+            >
+              <svg viewBox="0 0 24 24" fill="currentColor" className="h-[18px] w-[18px]" aria-hidden>
+                <path d="M12 2C6.3 2 2 6.2 2 11.7c0 2.9 1.2 5.4 3.1 7.1.2.1.3.4.3.6l.1 1.9c0 .6.6 1 1.2.8l2.1-.9c.2-.1.4-.1.6 0 .9.3 1.9.4 2.5.4 5.7 0 10-4.2 10-9.7C22 6.2 17.7 2 12 2zm6 7.5-2.9 4.6c-.5.7-1.5.9-2.1.4l-2.3-1.7c-.2-.2-.5-.2-.8 0l-3.1 2.4c-.4.3-1-.2-.7-.7l2.9-4.6c.5-.7 1.5-.9 2.1-.4l2.3 1.7c.2.2.5.2.8 0l3.1-2.4c.4-.3 1 .2.7.7z" />
+              </svg>
             </a>
             <a
               href={social.trustpilot}
@@ -112,7 +134,7 @@ export function Footer() {
               <a href={mapsHref} target="_blank" rel="noopener noreferrer" className="group flex items-start gap-3">
                 <MapPin className="mt-0.5 h-[18px] w-[18px] text-brand-300" />
                 <span className="text-ink-muted transition-colors group-hover:text-white">
-                  {contact.location}
+                  {contact.address}
                 </span>
               </a>
             </li>

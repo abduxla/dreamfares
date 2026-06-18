@@ -20,6 +20,10 @@ export const contact = {
   whatsappDisplay: process.env.NEXT_PUBLIC_WHATSAPP_DISPLAY ?? "0485 864 978",
   whatsappE164: process.env.NEXT_PUBLIC_WHATSAPP_E164 ?? "61485864978",
   email: process.env.NEXT_PUBLIC_EMAIL ?? "Support@dreamfares.com.au",
+  messenger: process.env.NEXT_PUBLIC_MESSENGER_URL ?? "https://m.me/961967810329597",
+  addressLine: "329/98–100 Elizabeth Street",
+  addressRegion: "Melbourne VIC 3000",
+  address: "329/98–100 Elizabeth Street, Melbourne VIC 3000, Australia",
   location: "Melbourne, Australia",
 };
 
@@ -28,7 +32,8 @@ export const social = {
     process.env.NEXT_PUBLIC_FACEBOOK_URL ??
     "https://www.facebook.com/share/18pNySu4Ci/?mibextid=wwXIfr",
   instagram: process.env.NEXT_PUBLIC_INSTAGRAM_URL ?? "https://www.instagram.com/dreamfares_au",
-  trustpilot: process.env.NEXT_PUBLIC_TRUSTPILOT_URL ?? "https://www.trustpilot.com/",
+  trustpilot:
+    process.env.NEXT_PUBLIC_TRUSTPILOT_URL ?? "https://www.trustpilot.com/review/dreamfares.com.au",
 };
 
 /** Primary navigation, in the same order as the source site. */
@@ -52,8 +57,11 @@ export const mailHref = `mailto:${contact.email}?subject=${encodeURIComponent(
 
 /** Google Maps link for the business location. */
 export const mapsHref = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(
-  "Dreamfares PTY LTD, Melbourne, Australia",
+  "329/98-100 Elizabeth Street, Melbourne VIC 3000, Australia",
 )}`;
+
+/** Facebook Messenger deep link. */
+export const messengerHref = contact.messenger;
 
 /** Build a WhatsApp deep link with an optional pre-filled message. */
 export function whatsappHref(message?: string): string {

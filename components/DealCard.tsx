@@ -1,11 +1,10 @@
 import Image from "next/image";
-import { MessageCircle, Plane, Clock, Star } from "lucide-react";
+import { Plane, Clock, Star } from "lucide-react";
 import type { Deal } from "@/lib/data";
-import { whatsappHref } from "@/lib/site";
+import { DealActions } from "@/components/DealActions";
 
 export function DealCard({ deal }: { deal: Deal }) {
   const message = `Hi Dreamfares! I'm interested in the "${deal.title}" (${deal.nights} nights) package from AUD $${deal.price.toLocaleString()}. Could you share availability?`;
-  const href = whatsappHref(message);
 
   return (
     <article className="card group flex h-full flex-col overflow-hidden hover:-translate-y-2 hover:border-brand-400/40 hover:shadow-glow">
@@ -79,25 +78,7 @@ export function DealCard({ deal }: { deal: Deal }) {
           </div>
         </div>
 
-        <div className="mt-4 flex gap-2">
-          <a
-            href={href}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="btn-gold flex-1"
-          >
-            View Details
-          </a>
-          <a
-            href={href}
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label={`Enquire about ${deal.title} on WhatsApp`}
-            className="grid h-11 w-12 shrink-0 place-items-center rounded-full bg-grass-500 text-white shadow-glow-green transition-transform duration-300 hover:-translate-y-0.5"
-          >
-            <MessageCircle className="h-5 w-5" />
-          </a>
-        </div>
+        <DealActions message={message} />
       </div>
     </article>
   );
