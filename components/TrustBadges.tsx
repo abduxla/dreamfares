@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, type ReactNode } from "react";
+import { useEffect, useRef, useState, type ReactNode } from "react";
 import { ShieldCheck } from "lucide-react";
 
 /**
@@ -22,10 +22,20 @@ function BadgeSlot({
   fallback: ReactNode;
 }) {
   const [ok, setOk] = useState(true);
+  const ref = useRef<HTMLImageElement>(null);
+
+  useEffect(() => {
+    // Catch images that 404 before React attached the onError handler.
+    if (ref.current && ref.current.complete && ref.current.naturalWidth === 0) {
+      setOk(false);
+    }
+  }, []);
+
   if (!ok) return <>{fallback}</>;
   return (
     // eslint-disable-next-line @next/next/no-img-element
     <img
+      ref={ref}
       src={src}
       alt={alt}
       onError={() => setOk(false)}
