@@ -10,7 +10,7 @@ export const siteConfig = {
   tagline: "Find Your Dream Escape",
   description:
     "A premium travel marketplace offering curated international holiday packages from Australia with AI-powered deal matching and dedicated travel assistance.",
-  url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://dreamfares.com.au",
+  url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.dreamfares.com.au",
   location: "Melbourne, Australia",
 };
 
